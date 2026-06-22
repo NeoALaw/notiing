@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kinetic Edge — an immersive Three.js and WebGL sports accessories storefront concept." />
+  <title>Kinetic Edge — WebGL Sports Accessories</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <div class="loader" data-loader>
+    <div class="loader__wrap">
+      <p>Loading performance field</p>
+      <div class="loader__bar"><span data-loader-bar></span></div>
+      <strong data-loader-count>000</strong>
+    </div>
+  </div>
+
+  <canvas id="webgl" aria-hidden="true"></canvas>
+
+  <header class="site-header" data-nav>
+    <a class="brand magnetic" href="#hero" aria-label="Kinetic Edge home">
+      <span class="brand__mark"></span>
+      <span>Kinetic<br>Edge</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a class="magnetic" href="#drop">Drop 01</a>
+      <a class="magnetic" href="#lab">Motion Lab</a>
+      <a class="magnetic" href="#gear">Gear</a>
+      <a class="magnetic" href="#club">Club</a>
+    </nav>
+    <button class="menu-button magnetic" data-menu-toggle aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <aside class="menu-panel" data-menu-panel aria-hidden="true">
+    <div class="menu-panel__bg"></div>
+    <button class="menu-close magnetic" data-menu-close aria-label="Close menu">Close</button>
+    <nav aria-label="Mobile navigation">
+      <a href="#hero" data-menu-link>Home</a>
+      <a href="#drop" data-menu-link>Drop 01</a>
+      <a href="#lab" data-menu-link>Motion Lab</a>
+      <a href="#gear" data-menu-link>Accessories</a>
+      <a href="#club" data-menu-link>Join Club</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section class="hero section" id="hero" data-section="hero">
+      <div class="section-kicker reveal">2026 / Sport performance accessories</div>
+      <div class="hero__grid">
+        <div>
+          <h1 class="hero-title reveal">
+            Gear<br>
+            that moves<br>
+            like instinct
+          </h1>
+          <div class="hero__actions reveal">
+            <a href="#gear" class="button button--primary magnetic">Explore drop</a>
+            <a href="#lab" class="button button--ghost magnetic">Enter motion lab</a>
+          </div>
+        </div>
+        <div class="hero__copy reveal">
+          <p>Interactive WebGL storefront for elite sports accessories — gloves, smart bottles, balls, rackets, pads, bands, and training essentials.</p>
+          <div class="metrics">
+            <span><strong>36</strong> products</span>
+            <span><strong>7</strong> sports</span>
+            <span><strong>3D</strong> shopping</span>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-hint reveal">
+        <span></span>
+        Scroll to orbit
+      </div>
+    </section>
+
+    <section class="marquee" aria-label="Product categories">
+      <div class="marquee__track">
+        <span>TENNIS</span><span>RUNNING</span><span>FOOTBALL</span><span>CYCLING</span><span>GYM</span><span>CRICKET</span><span>BADMINTON</span><span>HYDRATION</span>
+        <span>TENNIS</span><span>RUNNING</span><span>FOOTBALL</span><span>CYCLING</span><span>GYM</span><span>CRICKET</span><span>BADMINTON</span><span>HYDRATION</span>
+      </div>
+    </section>
+
+    <section class="drop section" id="drop" data-section="drop">
+      <div class="split">
+        <div class="sticky-copy">
+          <p class="section-kicker reveal">Drop 01 / Built for speed</p>
+          <h2 class="section-title reveal">Accessories with a cinematic product stage.</h2>
+          <p class="body-copy reveal">Each product card can drive the 3D scene, creating an immersive buying journey instead of a normal ecommerce grid.</p>
+        </div>
+        <div class="drop-list">
+          <article class="drop-card reveal" data-product="Glide Pro Gloves" data-color="#D7FF37">
+            <span>01</span>
+            <h3>Glide Pro Gloves</h3>
+            <p>Grip mapped palms, breathable mesh, and smart seam geometry.</p>
+          </article>
+          <article class="drop-card reveal" data-product="AeroFlex Bottle" data-color="#26F3FF">
+            <span>02</span>
+            <h3>AeroFlex Bottle</h3>
+            <p>Anti-slip shell, quick-snap cap, and cold-lock insulation.</p>
+          </article>
+          <article class="drop-card reveal" data-product="Pulse Band Kit" data-color="#FF4FD8">
+            <span>03</span>
+            <h3>Pulse Band Kit</h3>
+            <p>Training bands with progressive resistance and tactile markers.</p>
+          </article>
+          <article class="drop-card reveal" data-product="Strike Control Ball" data-color="#F6F0E8">
+            <span>04</span>
+            <h3>Strike Control Ball</h3>
+            <p>Hybrid indoor-outdoor surface designed for control drills.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab section" id="lab" data-section="lab">
+      <p class="section-kicker reveal">Motion Lab / WebGL interaction</p>
+      <h2 class="lab-title reveal">Move your cursor. The store responds.</h2>
+      <div class="lab-grid">
+        <div class="lab-card reveal">
+          <span>01</span>
+          <h3>3D product hero</h3>
+          <p>Procedural product-inspired forms float inside a performance field.</p>
+        </div>
+        <div class="lab-card reveal">
+          <span>02</span>
+          <h3>Scroll-directed camera</h3>
+          <p>Sections change the camera angle and light intensity for storytelling.</p>
+        </div>
+        <div class="lab-card reveal">
+          <span>03</span>
+          <h3>Mouse parallax</h3>
+          <p>The WebGL scene tracks user intent with subtle parallax and rotation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gear section" id="gear" data-section="gear">
+      <div class="gear__head">
+        <p class="section-kicker reveal">Shop / Accessories</p>
+        <h2 class="section-title reveal">Select your arena.</h2>
+      </div>
+      <div class="gear-grid">
+        <article class="gear-card reveal" data-product="Court Kit" data-color="#C7FF45">
+          <div class="gear-card__visual">TK</div>
+          <p>Tennis</p>
+          <h3>Court Kit</h3>
+          <span>Racket grip, sweatbands, control ball</span>
+        </article>
+        <article class="gear-card reveal" data-product="Runner Stack" data-color="#47C7FF">
+          <div class="gear-card__visual">RN</div>
+          <p>Running</p>
+          <h3>Runner Stack</h3>
+          <span>Bottle, reflective belt, compression sleeve</span>
+        </article>
+        <article class="gear-card reveal" data-product="Gym Core" data-color="#FF5AE8">
+          <div class="gear-card__visual">GY</div>
+          <p>Training</p>
+          <h3>Gym Core</h3>
+          <span>Gloves, straps, bands, towel</span>
+        </article>
+        <article class="gear-card reveal" data-product="Football Strike" data-color="#FFFFFF">
+          <div class="gear-card__visual">FT</div>
+          <p>Football</p>
+          <h3>Football Strike</h3>
+          <span>Ball, shin guard, grip socks</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="story section" data-section="story">
+      <div class="story-line reveal">No flat catalog.</div>
+      <div class="story-line reveal">No boring product page.</div>
+      <div class="story-line reveal">Only kinetic commerce.</div>
+    </section>
+
+    <section class="club section" id="club" data-section="club">
+      <div class="club-card reveal">
+        <p class="section-kicker">Kinetic Club / Launch campaign</p>
+        <h2>Build the next sports shopping experience.</h2>
+        <p>Use this prototype for a premium campaign, ecommerce landing page, or full WebGL brand site.</p>
+        <form class="signup" onsubmit="event.preventDefault(); this.classList.add('is-done'); this.querySelector('button').textContent='Request sent';">
+          <input aria-label="Email address" type="email" placeholder="Enter email for early access" required>
+          <button class="magnetic" type="submit">Join drop</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Kinetic Edge Concept</p>
+    <a href="#hero" class="magnetic">Back to top</a>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
